@@ -818,31 +818,19 @@ if (rsvpBtn && rsvpModal) {
       payload.append('instagram', data.instagram);
       payload.append('whatsapp', data.whatsapp);
 
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      /*
+       * Google Apps Script responde desde un dominio diferente.
+       * En móviles, intentar leer esa respuesta puede bloquearse por CORS.
+       * Con mode: 'no-cors' el navegador envía el formulario sin intentar
+       * leer la respuesta cross-origin.
+       */
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: payload,
-        redirect: 'follow'
+        cache: 'no-store',
+        keepalive: true
       });
-
-      const responseText = await response.text();
-
-      let result;
-      try {
-        result = JSON.parse(responseText);
-      } catch (error) {
-        throw new Error(
-          'Google Apps Script devolvió una respuesta no válida: ' +
-          responseText.slice(0, 180)
-        );
-      }
-
-      if (!result || result.success !== true) {
-        throw new Error(
-          result && result.message
-            ? result.message
-            : 'No se pudo completar el registro.'
-        );
-      }
 
       safeSetLocalStorage('famai_claq_confirmado', 'true');
       rsvpFormView.hidden = true;
