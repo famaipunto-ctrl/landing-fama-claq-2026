@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FAMA i. × CLAQ 2026 — Tarima + Lounge para artistas</title>
+<meta name="description" content="Invitación exclusiva para artistas: FAMA i. tiene tarima y lounge propio dentro de la feria CLAQ 2026, el 31 de julio.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   FAMA i. × CLAQ 2026 — Invitación / Pase de artista
+   Sistema: negro + papel/kraft + violeta de marca (#5A16E7)
+   Tipografía: League Spartan (display), Inter (texto), Caveat (script)
+   ========================================================= */
+
+:root{
+  --black:#0A0A0A;
+  --black-soft:#141210;
+  --paper:#EDE6D3;
+  --paper-line:rgba(10,10,10,.16);
+  --violet:#5A16E7;
+  --violet-deep:#22084F;
+  --violet-glow:rgba(90,22,231,.38);
+  --white:#F6F4EF;
+  --grey:#9C978C;
+  --ink:#141210;
+
+  --font-display:'League Spartan', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-script:'Caveat', cursive;
+
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ background:var(--black); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth; }
+body{
+  margin:0; background:var(--black); color:var(--white);
+  font-family:var(--font-body); font-weight:300; overflow-x:hidden;
+}
+a{ color:inherit; }
+img{ max-width:100%; display:block; }
+::selection{ background:var(--violet); color:var(--white); }
+
+.wrap{ max-width:1080px; margin:0 auto; padding:0 clamp(20px,6vw,64px); width:100%; }
+
+.section{ position:relative; padding:clamp(64px,14vw,140px) 0; }
+
+.eyebrow{
+  display:block; font-size:11px; font-weight:500; letter-spacing:.28em;
+  text-transform:uppercase; color:var(--grey); margin-bottom:20px;
+}
+
+/* ---------- texture: grain + blobs ---------- */
+.grain{
+  position:fixed; inset:-10%; z-index:1; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.blob{ position:fixed; border-radius:50%; filter:blur(100px); pointer-events:none; z-index:0; opacity:.55; }
+.blob--tr{ top:-16%; right:-18%; width:60vw; height:60vw; max-width:760px; max-height:760px; background:radial-gradient(circle, var(--violet-glow), transparent 70%); }
+.blob--bl{ bottom:-18%; left:-20%; width:60vw; height:60vw; max-width:760px; max-height:760px; background:radial-gradient(circle, var(--violet-glow), transparent 70%); }
+
+main{ position:relative; z-index:2; }
+
+/* ---------- fade-up reveal ---------- */
+.reveal{ opacity:1; transform:none; }
+.js-enabled .reveal{
+  opacity:0; transform:translateY(24px);
+  transition:opacity .8s var(--ease), transform .8s var(--ease);
+}
+.js-enabled .reveal.is-visible{ opacity:1; transform:translateY(0); }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+/* ==================================================
+   HERO
+   ================================================== */
+.hero{
+  min-height:100svh; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center; gap:clamp(20px,4vw,34px); padding:120px 0 80px;
+}
+.hero-lockup{
+  display:flex; align-items:center; gap:18px; font-family:var(--font-display);
+  font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--grey);
+  margin-bottom:8px;
+}
+.brand-logo-img{
+  display:block;
+  width:clamp(250px, 58vw, 520px);
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+  margin:0 auto;
+}
+.brand-logo-img--footer{
+  width:clamp(220px, 48vw, 420px);
+}
+.hero-lockup .x{ color:var(--violet); font-weight:700; font-size:clamp(20px,2.6vw,26px); }
+
+.hero-claq{ position:relative; width:min(78vw,420px); }
+.hero-claq img{ width:100%; height:auto; filter:brightness(0) invert(1); }
+.hero-script{
+  position:absolute; top:-8px; right:-6px; font-family:var(--font-script);
+  font-size:clamp(20px,4vw,30px); color:var(--violet); transform:rotate(-8deg);
+}
+
+.hero-headline{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(26px,5vw,44px);
+  line-height:1.15; letter-spacing:-.01em; max-width:640px; margin:0;
+}
+.hero-headline em{ font-style:normal; color:var(--violet); }
+
+.hero-sub{
+  font-size:clamp(15px,1.6vw,18px); line-height:1.7; color:#CFCCC3; max-width:520px;
+  margin:0 auto; text-align:center;
+}
+
+.hero-date{
+  font-family:var(--font-display); font-weight:500; font-size:13px; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--white); border:1px solid var(--paper-line);
+  border-color:rgba(246,244,239,.22); padding:10px 20px; border-radius:100px;
+}
+
+.scroll-cue{
+  display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:10px;
+  font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--grey);
+}
+.scroll-cue-line{ width:1px; height:40px; background:linear-gradient(var(--violet), transparent); }
+
+/* ==================================================
+   SECCION: LA INVITACION
+   ================================================== */
+.section--invite{ background:var(--black); }
+.invite-grid{ display:grid; gap:40px; align-items:start; }
+.invite-headline{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(28px,5.6vw,52px);
+  line-height:1.1; letter-spacing:-.01em; margin:0 0 22px;
+}
+.invite-headline em{ font-style:normal; color:var(--violet); }
+.invite-body{ font-size:clamp(15px,1.6vw,18px); line-height:1.7; color:#CFCCC3; max-width:520px; }
+
+/* ==================================================
+   SECCION: TARIMA + LOUNGE
+   ================================================== */
+.section--spaces{ background:var(--black-soft); }
+.spaces-grid{ display:grid; gap:1px; background:var(--paper-line); border:1px solid var(--paper-line); margin-top:44px; }
+.space-card{ position:relative; background:var(--black-soft); padding:40px 30px; display:flex; flex-direction:column; gap:18px; }
+.space-index{ font-family:var(--font-display); font-size:13.2px; letter-spacing:.2em; color:var(--violet); }
+.space-title{ font-family:var(--font-display); font-weight:600; font-size:clamp(24px,3.4vw,32px); }
+.space-copy{ font-size:15px; line-height:1.65; color:#B9B6AD; }
+.space-script{
+  position:absolute; top:26px; right:26px; font-family:var(--font-script);
+  font-size:24.2px; color:var(--violet); transform:rotate(-6deg); opacity:.9;
+}
+
+/* ==================================================
+   SECCION: MANIFIESTO (AJEDREZ)
+   ================================================== */
+.section--manifesto{ background:var(--black); text-align:center; }
+.manifesto-quote{
+  font-family:var(--font-display); font-weight:500; font-style:normal;
+  font-size:clamp(24px,4.4vw,42px); line-height:1.35; max-width:760px; margin:0 auto 22px;
+}
+.manifesto-quote .accent{ color:var(--violet); }
+.manifesto-sub{ font-family:var(--font-script); font-size:clamp(20px,2.6vw,26px); color:var(--grey); }
+.manifesto-sign{ margin-top:34px; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--grey); }
+
+/* ==================================================
+   SECCION: EL PASE (TICKET) — elemento firma
+   ================================================== */
+.section--ticket{ background:var(--black); }
+.ticket-heading{ text-align:center; margin-bottom:48px; }
+.ticket-heading h2{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(28px,4.6vw,44px); margin:0;
+}
+.ticket-heading h2 em{ font-style:normal; color:var(--violet); }
+
+.ticket-outer{ display:flex; justify-content:center; }
+.ticket{
+  position:relative; width:100%; max-width:420px; background:var(--paper); color:var(--ink);
+  border-radius:6px; box-shadow:0 40px 80px rgba(0,0,0,.5); overflow:visible;
+  padding:34px 30px 30px;
+}
+.ticket::before{
+  content:""; position:absolute; top:0; left:14px; right:14px; height:12px;
+  background-image:radial-gradient(circle at 8px 4px, var(--black) 5px, transparent 5.5px);
+  background-size:18px 12px; background-repeat:repeat-x; background-position:top;
+}
+.ticket-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.ticket-lockup{ display:flex; flex-direction:column; gap:6px; }
+.ticket-lockup img{ height:22px; width:auto; }
+.ticket-lockup .x-mix{ font-family:var(--font-display); font-size:11px; letter-spacing:.2em; color:var(--grey); text-transform:uppercase;}
+.ticket-lockup .x-mix .x{ color:var(--violet); font-weight:700; }
+.ticket-claq{ height:34px; width:auto; }
+
+.ticket-seal{ width:70px; height:70px; flex:none; }
+
+.ticket-pass{
+  margin-top:22px; font-family:var(--font-display); font-weight:700;
+  font-size:clamp(20px,3.6vw,26px); letter-spacing:.01em;
+}
+.ticket-pass span{ color:var(--violet); }
+.ticket-meta{ margin-top:6px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#5C584E; }
+
+.ticket-divider{ position:relative; height:0; border-top:2px dashed rgba(20,18,16,.35); margin:26px -30px; }
+.ticket-divider::before, .ticket-divider::after{
+  content:""; position:absolute; top:-13px; width:26px; height:26px; border-radius:50%; background:var(--black);
+}
+.ticket-divider::before{ left:-13px; }
+.ticket-divider::after{ right:-13px; }
+
+.ticket-stub{ display:flex; align-items:center; justify-content:space-between; gap:18px; }
+.ticket-stub-label{ font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#5C584E; }
+.countdown{ display:flex; gap:14px; }
+.countdown-unit{ display:flex; flex-direction:column; align-items:center; gap:4px; }
+.countdown-num{ font-family:var(--font-display); font-weight:700; font-size:clamp(20px,4vw,28px); font-variant-numeric:tabular-nums; min-width:1.2em; text-align:center; }
+.countdown-label{ font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:#8A857A; }
+
+.ticket-note{
+  position:absolute; bottom:-30px; right:6px; font-family:var(--font-script);
+  font-size:22px; color:var(--paper); transform:rotate(-5deg);
+}
+
+/* ==================================================
+   CTA FINAL
+   ================================================== */
+.section--cta{ background:var(--black-soft); text-align:center; }
+.cta-headline{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(30px,6vw,54px);
+  line-height:1.08; letter-spacing:-.01em; margin:0 0 34px;
+}
+.cta-headline em{ font-style:normal; color:var(--violet); }
+
+.cta-btn{
+  display:inline-flex; align-items:center; gap:12px; font-family:var(--font-display);
+  font-weight:600; font-size:15px; letter-spacing:.02em; text-transform:uppercase;
+  background:var(--violet); color:var(--white); padding:18px 34px; border-radius:100px;
+  border:none; cursor:pointer;
+  transition:transform .35s var(--ease), background .35s var(--ease); text-decoration:none;
+}
+.cta-btn:hover{ transform:translateY(-3px); background:#6B2CF5; }
+.cta-note{ margin-top:18px; font-size:13px; color:var(--grey); }
+
+.cta-footer{
+  margin-top:80px; display:flex; flex-direction:column; align-items:center; gap:14px;
+}
+.cta-footer .x-mix{ display:flex; align-items:center; gap:18px; font-family:var(--font-display); font-size:9px; letter-spacing:.2em; color:var(--grey); text-transform:uppercase; }
+.cta-footer .x-mix .x{ color:var(--violet); font-size:clamp(20px,2.6vw,26px); }
+.cta-legal{ font-size:11px; color:#6b675f; margin-top:10px; }
+
+/* ==================================================
+   DESKTOP ENHANCEMENTS
+   ================================================== */
+@media (min-width:760px){
+  .invite-grid{ grid-template-columns:1.1fr .9fr; gap:64px; }
+  .spaces-grid{ grid-template-columns:1fr 1fr; }
+  .space-card{ padding:56px 44px; }
+  .ticket{ padding:44px 40px 38px; max-width:460px; }
+}
+
+@media (max-width:400px){
+  .countdown{ gap:8px; }
+  .countdown-num{ font-size:20px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition-duration:.01ms !important; }
+}
+
+:focus-visible{ outline:2px solid var(--violet); outline-offset:3px; }
+
+/* ==================================================
+   RSVP MODAL
+   ================================================== */
+.rsvp-modal{
+  position:fixed; inset:0; z-index:500; display:none; align-items:center; justify-content:center;
+  padding:24px;
+}
+.rsvp-modal.is-open{ display:flex; }
+.rsvp-overlay{ position:absolute; inset:0; background:rgba(6,5,4,.74); }
+.rsvp-dialog{
+  position:relative; z-index:1; width:100%; max-width:440px; max-height:88vh; overflow-y:auto;
+  background:var(--black-soft); border:1px solid rgba(246,244,239,.14); border-radius:14px;
+  padding:38px 30px 30px; box-shadow:0 30px 70px rgba(0,0,0,.55);
+}
+.rsvp-close{
+  position:absolute; top:14px; right:14px; width:34px; height:34px; border-radius:50%;
+  background:rgba(246,244,239,.08); border:none; color:var(--white); font-size:20px; line-height:1;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.rsvp-title{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(20px,4vw,26px); margin:10px 0 22px;
+}
+.form-accompanying-note{
+  margin:-10px 0 20px; padding:10px 14px; font-size:12.5px; line-height:1.5; color:#CFCCC3;
+  background:rgba(90,22,231,.08); border:1px solid rgba(90,22,231,.35); border-radius:8px;
+}
+#rsvpForm{ display:flex; flex-direction:column; gap:16px; }
+.rsvp-field{ display:flex; flex-direction:column; gap:6px; text-align:left; }
+.rsvp-field label{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); }
+.rsvp-field input{
+  font-family:var(--font-body); font-size:16px; padding:12px 14px; border-radius:8px;
+  border:1px solid rgba(246,244,239,.18); background:rgba(246,244,239,.04); color:var(--white);
+  outline:none; transition:border-color .25s;
+}
+.rsvp-field input:focus{ border-color:var(--violet); }
+.rsvp-field.has-error input{ border-color:#E0554F; }
+.rsvp-error{ display:none; font-size:12px; color:#E0554F; }
+.rsvp-field.has-error .rsvp-error{ display:block; }
+.rsvp-connection-error{ display:none; font-size:13px; color:#E0554F; text-align:center; margin:0; }
+.rsvp-connection-error.is-visible{ display:block; }
+.rsvp-duplicate-note{ display:none; font-size:12px; color:var(--grey); text-align:center; margin:0; }
+.rsvp-duplicate-note.is-visible{ display:block; }
+.rsvp-submit{
+  margin-top:6px; font-family:var(--font-display); font-weight:600; font-size:14px;
+  letter-spacing:.02em; text-transform:uppercase; background:var(--violet); color:var(--white);
+  border:none; padding:16px 20px; border-radius:100px; cursor:pointer;
+  transition:transform .3s var(--ease), background .3s var(--ease), opacity .3s;
+}
+.rsvp-submit:hover{ background:#6B2CF5; }
+.rsvp-submit:disabled{ opacity:.6; cursor:not-allowed; }
+.rsvp-privacy{ margin-top:4px; font-size:11px; color:#6b675f; text-align:center; }
+.rsvp-success{ text-align:center; padding:10px 0; }
+.rsvp-success-msg{ font-size:15px; line-height:1.6; color:#CFCCC3; margin:14px 0 26px; }
+body.rsvp-lock{ overflow:hidden; }
+
+@media (max-width:480px){
+  .rsvp-dialog{ padding:32px 20px 24px; }
+}
+
+/* ==================================================
+   CORRECCIONES ESPECIFICAS MOVIL
+   ================================================== */
+@media (max-width:759px){
+  .hero{
+    min-height:auto;
+    padding:82px 0 64px;
+  }
+
+  .hero-lockup{
+    width:100%;
+    justify-content:center;
+    margin-bottom:6px;
+  }
+
+  .section{
+    padding:72px 0;
+  }
+
+  .spaces-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cta-btn{
+    width:100%;
+    max-width:360px;
+    justify-content:center;
+    min-height:54px;
+  }
+
+  .rsvp-modal{
+    padding:12px;
+    align-items:center;
+  }
+
+  .rsvp-dialog{
+    width:100%;
+    max-width:100%;
+    max-height:calc(100dvh - 24px);
+    padding:32px 18px 22px;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .rsvp-field input{
+    width:100%;
+    min-width:0;
+    min-height:50px;
+    font-size:16px;
+  }
+
+  .rsvp-submit{
+    width:100%;
+    min-height:52px;
+  }
+}
+</style>
+</head>
+<body>
+<script>
+  document.documentElement.classList.add('js-enabled');
+</script>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="blob blob--tr" aria-hidden="true"></div>
+<div class="blob blob--bl" aria-hidden="true"></div>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:inherit;">
+      <div class="hero-lockup reveal">
+        <img
+          src="https://wordpress-1640418-6571568.cloudwaysapps.com/wp-content/uploads/2026/07/logoss.png"
+          alt="FAMA i. × CLAQ"
+          class="brand-logo-img"
+          width="900"
+          height="165"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </div>
+
+      <p class="hero-headline reveal">
+        No todos los artistas llegan hasta <em>aquí.</em>
+      </p>
+
+      <p class="hero-sub reveal">Si estás viendo esta invitación, es porque creemos en ti y queremos que vivas la experiencia con nosotros.</p>
+
+      <span class="hero-date reveal">31 de julio · 2026</span>
+
+      <div class="scroll-cue reveal">
+        <span>Scroll</span>
+        <div class="scroll-cue-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LA INVITACION ================= -->
+  <section class="section section--invite">
+    <div class="wrap invite-grid">
+      <div>
+        <span class="eyebrow reveal">Invitación exclusiva para artistas</span>
+        <h2 class="invite-headline reveal">Tu pase no es para <em>ver</em> la feria. Es para <em>estar</em> en ella.</h2>
+      </div>
+      <p class="invite-body reveal">
+        Dentro de CLAQ, FAMA i. construyó su propio espacio: una tarima para mostrar lo que estás haciendo
+        y un lounge para conectar con la industria que puede moverlo. Esta invitación es tu acceso directo a ambos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= TARIMA + LOUNGE ================= -->
+  <section class="section section--spaces">
+    <div class="wrap">
+      <span class="eyebrow reveal">El espacio FAMA i. dentro de CLAQ</span>
+      <h2 class="invite-headline reveal" style="margin-bottom:0;">Dos formas de estar presente.</h2>
+
+      <div class="spaces-grid">
+        <div class="space-card reveal">
+          <span class="space-script">en vivo</span>
+          <span class="space-index">01 — Tarima</span>
+          <h3 class="space-title">Tarima FAMA i.</h3>
+          <p class="space-copy">Un espacio para mostrar lo que haces. Creemos en quienes están construyendo su historia.</p>
+        </div>
+        <div class="space-card reveal">
+          <span class="space-script">sin fila</span>
+          <span class="space-index">02 — Lounge</span>
+          <h3 class="space-title">Lounge FAMA i.</h3>
+          <p class="space-copy">El punto de encuentro fuera del ruido de la feria. Conversaciones llenas de oportunidades, un espacio para conectar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MANIFIESTO ================= -->
+  <section class="section section--manifesto">
+    <div class="wrap">
+      <span class="eyebrow reveal">Cómo pensamos la carrera</span>
+      <p class="manifesto-quote reveal">"No gana quien se mueve más. <span class="accent">Gana quien entiende el tablero.</span>"</p>
+      <p class="manifesto-sub reveal">CLAQ es el tablero. Esta es tu movida.</p>
+      <p class="manifesto-sign reveal">— FAMA i.</p>
+    </div>
+  </section>
+
+  <!-- ================= EL PASE (TICKET) ================= -->
+  <section class="section section--ticket">
+    <div class="wrap">
+      <div class="ticket-heading">
+        <span class="eyebrow reveal">Tu acceso</span>
+        <h2 class="reveal">El <em>pase</em> a Tarima + Lounge</h2>
+      </div>
+
+      <div class="ticket-outer reveal">
+        <div class="ticket">
+          <div class="ticket-top">
+            <div class="ticket-lockup">
+              <span class="x-mix">FAMA i.</span>
+            </div>
+            <svg class="ticket-seal" viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <path id="sealCircle" d="M50,10 a40,40 0 1,1 -0.1,0"></path>
+              </defs>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="#5A16E7" stroke-width="1.4"/>
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#141210" stroke-width="1" stroke-dasharray="2 4"/>
+              <text font-family="League Spartan" font-size="7.4" font-weight="600" fill="#141210" letter-spacing="1.5">
+                <textPath href="#sealCircle" startOffset="2%">FAMA i. · TARIMA + LOUNGE · CLAQ 2026 ·</textPath>
+              </text>
+              <circle cx="50" cy="50" r="4" fill="#5A16E7"/>
+            </svg>
+          </div>
+
+          <div class="ticket-pass">PASE DE ARTISTA <span>— Válido 1 día</span></div>
+          <div class="ticket-meta">Feria CLAQ 2026 · Tarima + Lounge FAMA i.</div>
+
+          <div class="ticket-divider"></div>
+
+          <div class="ticket-stub">
+            <div>
+              <div class="ticket-stub-label">CLAQ comienza en</div>
+              <div class="countdown" id="countdown">
+                <div class="countdown-unit"><span class="countdown-num" data-unit="days">00</span><span class="countdown-label">Días</span></div>
+                <div class="countdown-unit"><span class="countdown-num" data-unit="hours">00</span><span class="countdown-label">Hrs</span></div>
+                <div class="countdown-unit"><span class="countdown-num" data-unit="minutes">00</span><span class="countdown-label">Min</span></div>
+                <div class="countdown-unit"><span class="countdown-num" data-unit="seconds">00</span><span class="countdown-label">Seg</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="section section--cta">
+    <div class="wrap">
+      <span class="eyebrow reveal">31 de julio · 2026</span>
+      <h2 class="cta-headline reveal">Confirma tu lugar en <em>Tarima + Lounge.</em></h2>
+      <button type="button" class="cta-btn reveal" id="rsvpBtn">
+        Confirmar asistencia
+      </button>
+      <p class="cta-note reveal">Cupos limitados para el espacio FAMA i. dentro de la feria.</p>
+
+      <div class="cta-footer reveal">
+        <div class="x-mix">
+          <img
+            src="https://wordpress-1640418-6571568.cloudwaysapps.com/wp-content/uploads/2026/07/logoss.png"
+            alt="FAMA i. × CLAQ"
+            class="brand-logo-img brand-logo-img--footer"
+            width="900"
+            height="165"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+        <p class="cta-legal">Confidencial — invitación uso exclusivo del destinatario</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="rsvp-modal" id="rsvpModal" aria-hidden="true">
+  <div class="rsvp-overlay" id="rsvpOverlay"></div>
+  <div class="rsvp-dialog" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" id="rsvpDialog">
+    <button type="button" class="rsvp-close" id="rsvpClose" aria-label="Cerrar">&times;</button>
+
+    <div id="rsvpFormView">
+      <span class="eyebrow">Tarima + Lounge</span>
+      <h3 id="rsvpTitle" class="rsvp-title">Confirma tu registro</h3>
+      <p class="form-accompanying-note">Solo se permite un acompañante por artista.</p>
+
+      <form id="rsvpForm" novalidate>
+        <div class="rsvp-field">
+          <label for="rsvpNombre">Nombre</label>
+          <input type="text" id="rsvpNombre" name="nombre" autocomplete="name" required>
+          <span class="rsvp-error" id="rsvpNombreError" role="alert"></span>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvpCorreo">Correo electrónico</label>
+          <input type="email" id="rsvpCorreo" name="correo" autocomplete="email" required>
+          <span class="rsvp-error" id="rsvpCorreoError" role="alert"></span>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvpInstagram">Usuario de Instagram</label>
+          <input type="text" id="rsvpInstagram" name="instagram" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="@usuario" required>
+          <span class="rsvp-error" id="rsvpInstagramError" role="alert"></span>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvpWhatsapp">WhatsApp</label>
+          <input type="tel" id="rsvpWhatsapp" name="whatsapp" autocomplete="tel" placeholder="+57 300 000 0000" required>
+          <span class="rsvp-error" id="rsvpWhatsappError" role="alert"></span>
+        </div>
+
+        <p class="rsvp-connection-error" id="rsvpConnectionError" role="alert"></p>
+        <p class="rsvp-duplicate-note" id="rsvpDuplicateNote">Ya registraste una confirmación desde este dispositivo.</p>
+
+        <button type="submit" class="rsvp-submit" id="rsvpSubmit">Confirmar registro</button>
+        <p class="rsvp-privacy">Tus datos serán utilizados únicamente para gestionar tu asistencia al evento.</p>
+      </form>
+    </div>
+
+    <div id="rsvpSuccessView" class="rsvp-success" hidden>
+      <span class="eyebrow">Confirmación exitosa</span>
+      <p class="rsvp-success-msg">Tu asistencia ha sido registrada correctamente. Gracias por confirmar tu lugar en Tarima + Lounge FAMA i.</p>
+      <p class="form-accompanying-note">Recuerda: solo se permite un acompañante por artista.</p>
+      <button type="button" class="rsvp-submit" id="rsvpSuccessClose">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- countdown a 31 julio 2026, 00:00 (hora Colombia, UTC-5) ---------- */
+const EVENT_DATE = new Date('2026-07-31T00:00:00-05:00').getTime();
+
+function updateCountdown(){
+  const now = Date.now();
+  const diff = Math.max(0, EVENT_DATE - now);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+  const set = (unit, value) => {
+    const el = document.querySelector(`[data-unit="${unit}"]`);
+    if (el) el.textContent = String(value).padStart(2,'0');
+  };
+  set('days', days); set('hours', hours); set('minutes', minutes); set('seconds', seconds);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ---------- scroll reveal ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: '0px 0px -20px 0px'
+    }
+  );
+
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('is-visible'));
+}
+
+/* Fallback de seguridad: si algo falla, no dejar contenido invisible */
+window.setTimeout(() => {
+  document
+    .querySelectorAll('.reveal:not(.is-visible)')
+    .forEach((el) => el.classList.add('is-visible'));
+}, 1500);
+
+/* ---------------------------------------------------------
+   RSVP MODAL — apertura, validación, normalización y envío
+   --------------------------------------------------------- */
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEeQQAV3NCwKKZ6TumAjrxJihzRZ-0F68ERAaYX8BahMmgsJQ_FIecg6D0v2sz--JV/exec';
+
+const rsvpBtn = document.getElementById('rsvpBtn');
+const rsvpModal = document.getElementById('rsvpModal');
+const rsvpClose = document.getElementById('rsvpClose');
+const rsvpOverlay = document.getElementById('rsvpOverlay');
+const rsvpForm = document.getElementById('rsvpForm');
+const rsvpSubmit = document.getElementById('rsvpSubmit');
+const rsvpFormView = document.getElementById('rsvpFormView');
+const rsvpSuccessView = document.getElementById('rsvpSuccessView');
+const rsvpSuccessClose = document.getElementById('rsvpSuccessClose');
+const rsvpConnectionError = document.getElementById('rsvpConnectionError');
+const rsvpDuplicateNote = document.getElementById('rsvpDuplicateNote');
+
+let rsvpLastFocused = null;
+let rsvpSubmitting = false;
+
+function normalizarInstagram(value) {
+  let v = (value || '').trim().replace(/\s+/g, '');
+  if (!v) return '';
+  if (!v.startsWith('@')) v = '@' + v;
+  return v;
+}
+
+function normalizarWhatsapp(value) {
+  return (value || '').trim().replace(/\s+/g, ' ').replace(/[^\d+ ]/g, '');
+}
+
+function safeGetLocalStorage(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+
+function safeSetLocalStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch (error) {
+    console.warn('LocalStorage no disponible:', error);
+  }
+}
+
+function setRsvpFieldError(fieldId, errorId, message) {
+  const field = document.getElementById(fieldId);
+  const errorEl = document.getElementById(errorId);
+  const wrap = field.closest('.rsvp-field');
+  if (message) {
+    wrap.classList.add('has-error');
+    errorEl.textContent = message;
+  } else {
+    wrap.classList.remove('has-error');
+    errorEl.textContent = '';
+  }
+}
+
+function validateRsvpForm() {
+  let firstInvalid = null;
+  let isValid = true;
+
+  const nombre = document.getElementById('rsvpNombre').value.trim();
+  if (nombre.replace(/\s+/g, '').length < 2) {
+    setRsvpFieldError('rsvpNombre', 'rsvpNombreError', 'Ingresa tu nombre.');
+    isValid = false;
+    firstInvalid = firstInvalid || 'rsvpNombre';
+  } else {
+    setRsvpFieldError('rsvpNombre', 'rsvpNombreError', '');
+  }
+
+  const correo = document.getElementById('rsvpCorreo').value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(correo)) {
+    setRsvpFieldError('rsvpCorreo', 'rsvpCorreoError', 'Ingresa un correo válido.');
+    isValid = false;
+    firstInvalid = firstInvalid || 'rsvpCorreo';
+  } else {
+    setRsvpFieldError('rsvpCorreo', 'rsvpCorreoError', '');
+  }
+
+  const instagram = normalizarInstagram(document.getElementById('rsvpInstagram').value);
+  if (instagram.replace('@', '').length < 2) {
+    setRsvpFieldError('rsvpInstagram', 'rsvpInstagramError', 'Ingresa tu usuario de Instagram.');
+    isValid = false;
+    firstInvalid = firstInvalid || 'rsvpInstagram';
+  } else {
+    setRsvpFieldError('rsvpInstagram', 'rsvpInstagramError', '');
+  }
+
+  const whatsapp = normalizarWhatsapp(document.getElementById('rsvpWhatsapp').value);
+  const whatsappDigits = whatsapp.replace(/\D/g, '');
+  if (whatsappDigits.length < 7) {
+    setRsvpFieldError('rsvpWhatsapp', 'rsvpWhatsappError', 'Ingresa un número de WhatsApp válido.');
+    isValid = false;
+    firstInvalid = firstInvalid || 'rsvpWhatsapp';
+  } else {
+    setRsvpFieldError('rsvpWhatsapp', 'rsvpWhatsappError', '');
+  }
+
+  if (firstInvalid) document.getElementById(firstInvalid).focus();
+
+  return { isValid, data: { nombre, correo: correo.toLowerCase(), instagram, whatsapp } };
+}
+
+function openRsvpModal() {
+  rsvpLastFocused = document.activeElement;
+  rsvpModal.classList.add('is-open');
+  rsvpModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('rsvp-lock');
+  rsvpFormView.hidden = false;
+  rsvpSuccessView.hidden = true;
+  rsvpConnectionError.classList.remove('is-visible');
+  if (safeGetLocalStorage('famai_claq_confirmado') === 'true') {
+    rsvpDuplicateNote.classList.add('is-visible');
+  } else {
+    rsvpDuplicateNote.classList.remove('is-visible');
+  }
+  setTimeout(() => { document.getElementById('rsvpNombre').focus(); }, 50);
+}
+
+function closeRsvpModal() {
+  if (rsvpSubmitting) return;
+  rsvpModal.classList.remove('is-open');
+  rsvpModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('rsvp-lock');
+  if (rsvpLastFocused) rsvpLastFocused.focus();
+}
+
+if (rsvpBtn && rsvpModal) {
+  rsvpBtn.addEventListener('click', openRsvpModal);
+  rsvpClose.addEventListener('click', closeRsvpModal);
+  rsvpOverlay.addEventListener('click', closeRsvpModal);
+  rsvpSuccessClose.addEventListener('click', closeRsvpModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && rsvpModal.classList.contains('is-open')) closeRsvpModal();
+  });
+
+  rsvpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (rsvpSubmitting) return;
+
+    const { isValid, data } = validateRsvpForm();
+    if (!isValid) return;
+
+    rsvpSubmitting = true;
+    rsvpSubmit.disabled = true;
+    const originalLabel = rsvpSubmit.textContent;
+    rsvpSubmit.textContent = 'Enviando...';
+    rsvpConnectionError.classList.remove('is-visible');
+
+    try {
+      const payload = new URLSearchParams();
+      payload.append('nombre', data.nombre);
+      payload.append('correo', data.correo);
+      payload.append('instagram', data.instagram);
+      payload.append('whatsapp', data.whatsapp);
+
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: payload,
+        redirect: 'follow'
+      });
+
+      const responseText = await response.text();
+
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (error) {
+        throw new Error(
+          'Google Apps Script devolvió una respuesta no válida: ' +
+          responseText.slice(0, 180)
+        );
+      }
+
+      if (!result || result.success !== true) {
+        throw new Error(
+          result && result.message
+            ? result.message
+            : 'No se pudo completar el registro.'
+        );
+      }
+
+      safeSetLocalStorage('famai_claq_confirmado', 'true');
+      rsvpFormView.hidden = true;
+      rsvpSuccessView.hidden = false;
+      setTimeout(() => { rsvpSuccessClose.focus(); }, 50);
+    } catch (err) {
+      console.error('Error RSVP:', err);
+      rsvpConnectionError.textContent =
+        'No pudimos completar tu registro. ' +
+        (err && err.message ? err.message : 'Inténtalo nuevamente.');
+      rsvpConnectionError.classList.add('is-visible');
+    } finally {
+      rsvpSubmitting = false;
+      rsvpSubmit.disabled = false;
+      rsvpSubmit.textContent = originalLabel;
+    }
+  });
+}
+</script>
+</body>
+</html>
